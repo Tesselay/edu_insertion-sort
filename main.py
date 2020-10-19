@@ -2,18 +2,16 @@ COUNTER_COMPARES = 0
 COUNTER_SWITCHES = 0
 
 
-def insertionSort():
-    pass
+def insertionSort(numbers):
 
+    for i in range(1, len(numbers)):
+        tmp = numbers.pop(i)
 
-if __name__ == "__main__":
-    pass
-    aa = [1, 5, 8, 2, 11, 9, 7, 14, 15]
-    ab = [33, 23, 15, 8, 99, 15, 15, 12, 3]
-    ac = [111, 24, 55, 63, 44, 88, 18, 1, 25]
-    ad = [99, 88, 77, 65, 40, 25, 19, 17, 13]
+        for j in range(i, 0, -1):
+            if tmp > numbers[j-1]:
+                numbers.insert(j, tmp)
+                break
+            if j == 1:
+                numbers.insert(j-1, tmp)
 
-    ba = [1, 4, 7, 8, 11, 3, 15, 16, 17]
-    bb = [22, 25, 45, 3, 1, 8, 15, 1, 9, 22]
-    bc = [99, 74, 55, 12, 65, 98, 8, 11, 23]
-    bd = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+    return numbers
